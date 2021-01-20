@@ -29,7 +29,9 @@ number = [int(i) for i in str(73167176531330624919225119674426574742355349194934
 
 answer = 0
 for j in range(987):
-    test = number[j] * number[j+1] * number[j+2] * number[j+3] * number[j+4] * number[j+5] * number[j+6] * number[j+7] * number[j+8] * number[j+9] * number[j+10] * number[j+11] * number[j+12]
+    test = 1
+    for k in range(13):
+        test *= number[j+k]
     if test > answer:
         answer = test
 
