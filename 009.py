@@ -16,10 +16,8 @@ for a in range(1,500):
     for b in range(1,500):
         cSq = pow(a,2) + pow(b,2)
         c = sqrt(cSq)
-        if c.is_integer() and a+b+c == 1000:
-            print(a,b,c)
+        if c.is_integer() and a+b+int(c) == 1000:
+            print(a,b,int(c))
             t1 = time.time()
             print(f"This calculation took {t1-t0} seconds")
             exit(0)
-        else:
-            print(f"{a}, {b}, {c} are wrong")
