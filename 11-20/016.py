@@ -17,11 +17,10 @@ def timed(func):
 
 @timed
 def sum_powers(num,exp):
-    x = num**exp
-    chars = []
-    for i in range(len(str(x))):
-        chars.append(int(str(x)[i]))
-    return sum(chars)
+    x = 0
+    for i in str(num**exp):
+        x += int(i)
+    return x
 
 
 print(sum_powers(2,1000))
