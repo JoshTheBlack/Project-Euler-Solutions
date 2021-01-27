@@ -21,9 +21,6 @@ def collatz(s):
     while s != 1:
         if s < t:
             count += ans[s-1][0] - 1
-            #val = ans[s-1][2]
-            #for i in range(0,len(val)-1):
-            #    num.append(val[i+1])
             return count, t#, num
         elif s % 2 == 0:
             s //= 2
@@ -31,7 +28,6 @@ def collatz(s):
         else:
             s = 3 * s + 1
             count += 1
-        #num.append(s)
     return count, t #, num
 
 t0 = time.time()

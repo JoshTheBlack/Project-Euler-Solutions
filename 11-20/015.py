@@ -19,6 +19,7 @@ def factorial(n):
         return 1
     else:
         return n * factorial(n-1)
+
 @timed
 def count_paths(n):
     x = factorial(n)

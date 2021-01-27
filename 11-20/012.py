@@ -44,4 +44,4 @@ while stop < 500:
         print(f"{tnum} is the {count} triangle number and has {stop} divisors")
 
 t1 = time.time()
-print(f"This calculation took {t1-t0} seconds.")
+print(f"This calculation took {t1-t0} seconds to complete.")

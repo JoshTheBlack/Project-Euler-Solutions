@@ -57,14 +57,10 @@ class Solution(object):
 @timed
 def count_letters(x,y):
     count = 0
-    #words = ""
     for i in range(x,y+1):
         count += len(ob.numberToWords(i))
-        #words = words + ob.numberToWords(i)
-    return count#, words
+    return count
 
 
 ob = Solution()
-#x = build_array(100)
-#print(x)
 print(count_letters(1,1000))
