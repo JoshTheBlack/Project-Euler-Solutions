@@ -29,7 +29,7 @@ with open(os.path.join(os.sys.path[0],"67.txt"), "r") as ins:
     tmp = ins.read().split("\n")
     data = [i.split(" ") for i in tmp]
 
-# Normalize the array to 100 columns by appending 0's
+# Normalize the array to 100 columns by appending 0's and converting to integers
 for i in range(len(data)):
     while len(data[i]) < 99:
         data[i].append(0)
