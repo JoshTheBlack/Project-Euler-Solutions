@@ -9,7 +9,7 @@ def timed(func):
         start = perf_counter()
         result = func(*args, **kwargs)
         end = perf_counter()
-        print(f"{func.__name__}: {end-start:.6f} seconds")
+        print(f"Function {func.__name__}: completed in {end-start:.6f} seconds")
         return result
     return wrapper
 
@@ -24,18 +24,11 @@ def path(tri, x):
 
     return tri[0][0]
 
+data = []
 # Open file for problem 67 and import data in to an array.
 with open(os.path.join(os.sys.path[0],"67.txt"), "r") as ins:
-    tmp = ins.read().split("\n")
-    data = [i.split(" ") for i in tmp]
-
-# Normalize the array to 100 columns by appending 0's and converting to integers
-for i in range(len(data)):
-    while len(data[i]) < 99:
-        data[i].append(0)
-for i in range(len(data)):
-    for j in range(len(data[i])):
-        data[i][j] = int(data[i][j])
+    for line in ins:
+        data.append([int(x) for x in line.strip().split(" ")])
 
 grid = [[75,0,0,0,0,0,0,0,0,0,0,0,0,0,0], [95,64,0,0,0,0,0,0,0,0,0,0,0,0,0], [17,47,82,0,0,0,0,0,0,0,0,0,0,0,0], [18,35,87,10,0,0,0,0,0,0,0,0,0,0,0], [20,4,82,47,65,0,0,0,0,0,0,0,0,0,0], [19,1,23,75,3,34,0,0,0,0,0,0,0,0,0], [88,2,77,73,7,63,67,0,0,0,0,0,0,0,0], [99,65,4,28,6,16,70,92,0,0,0,0,0,0,0], [41,41,26,56,83,40,80,70,33,0,0,0,0,0,0], [41,48,72,33,47,32,37,16,94,29,0,0,0,0,0], [53,71,44,65,25,43,91,52,97,51,14,0,0,0,0], [70,11,33,28,77,73,17,78,39,68,17,57,0,0,0], [91,71,52,38,17,14,91,43,58,50,27,29,48,0,0], [63,66,4,68,89,53,67,30,73,16,69,87,40,31,0], [4,62,98,27,23,9,70,98,73,93,38,53,60,4,23]]
 
