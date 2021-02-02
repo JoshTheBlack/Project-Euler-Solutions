@@ -2,7 +2,6 @@
 # Find the sum of the digits in the number 100!
 import comm as comm
 from comm import timed
-#from functools import wraps
 
 @timed
 def driver(n):
