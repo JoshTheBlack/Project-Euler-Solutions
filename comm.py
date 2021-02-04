@@ -1,6 +1,6 @@
 # coding=utf-8
 from time import perf_counter
-from functools import wraps
+from functools import wraps, reduce
 
 def timed(func):
     @wraps(func)
@@ -24,3 +24,14 @@ def sumDigits(n):
     for number in n:
         x += int(number)
     return x
+
+def sumDigits(n):
+    n = str(n)
+    x = 0
+    for number in n:
+        x += int(number)
+    return 
+
+def factors(n):    
+    return set(reduce(list.__add__, 
+                ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
