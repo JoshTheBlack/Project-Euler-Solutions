@@ -5,7 +5,7 @@
 # Evaluate the sum of all the amicable numbers under 10000.
 import comm
 from comm import timed
-from functools import wraps
+#from functools import wraps
 
 def isAmicable(n):
     x = sum(comm.factors(n), -n)
