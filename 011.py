@@ -30,7 +30,7 @@ import numpy as np
 
 t0 = time.time() # Used to test duration of calculation, initial time.
 # Import grid of numbers from file 11.txt and arrange them in to a 2D array, stored as "data"
-data = np.transpose(np.loadtxt(os.path.join(os.sys.path[0], "11.txt"), skiprows=0, delimiter=" "))
+data = np.transpose(np.loadtxt(os.path.join(os.sys.path[0], "011.txt"), skiprows=0, delimiter=" "))
 result = 0
 
 # Test products of all adjacent vertical groups of 4 integers.
