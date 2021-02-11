@@ -23,8 +23,8 @@ def findLargestNumberOfQuadraticPrimes(n):
     results = {}
     results[0] = [0,0]
     prime = comm.primes(n)
-    for a in range(-n,n+1):
-        for b in prime:
+    for b in prime:
+        for a in range(-abs(b),n+1):
             number = findNumberOfQuadraticPrimes(a,b)
             if number > max(results):
                 results[number] = [a,b]
