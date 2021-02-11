@@ -5,22 +5,26 @@ from comm import timed
 import comm
 
 def findNumberOfQuadraticPrimes(a,b):
-    count = 0
-    stop = False
-    while stop == False:
-        for n in range(1000):
-            if comm.is_prime((n**2 + (a*n) + b)) == True:
-                count += 1
-            else:
-                stop == True
-                return count
+    if comm.is_prime(b):
+        count = 0
+        stop = False
+        while stop == False:
+            for n in range(1000):
+                if comm.is_prime((n**2 + (a*n) + b)) == True:
+                    count += 1
+                else:
+                    stop == True
+                    return count
+    else:
+        return 0
 
 @timed
 def findLargestNumberOfQuadraticPrimes(n):
     results = {}
     results[0] = [0,0]
+    prime = comm.primes(n)
     for a in range(-n,n+1):
-        for b in range(-n,n+1):
+        for b in prime:
             number = findNumberOfQuadraticPrimes(a,b)
             if number > max(results):
                 results[number] = [a,b]
