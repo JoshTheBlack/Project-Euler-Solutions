@@ -37,6 +37,9 @@ def sumProperDivisors(num):
 def factors(n):    
     return set(reduce(list.__add__, 
                 ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
+
+def orderedFactors(n):
+    return [[i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0]
         
 def is_prime(n): 
     if n <= 1: 
