@@ -4,25 +4,16 @@
 # Note: As 1! = 1 and 2! = 2 are not sums they are not included.
 from comm import *
 
-def buildFactorialDict():
-    dict = {}
+def buildFactorialArray():
+    facts = []
     for dig in range(0,10):
-        dict[dig] = factorial(dig)
-    return dict
+        facts.append(factorial(dig))
+    return facts
 
-def checkCurious2(number):
+def checkCurious(number,facts): # number to check and array of factorials 0 - 9
     x = 0
     for num in str(number):
-        x += factorial(int(num))
-    if x == number:
-        return True
-    else:
-        return False
-
-def checkCurious(number,dict):
-    x = 0
-    for num in str(number):
-        x += dict[int(num)]
+        x += facts[int(num)]
     if x == number:
         return True
     else:
@@ -30,12 +21,11 @@ def checkCurious(number,dict):
 
 @timed
 def driver():
-    dict = buildFactorialDict()
+    facts = buildFactorialArray()
     x = 0
     for n in range(3,999999):
-        if checkCurious(n,dict):
+        if checkCurious(n,facts):
             x += n
     return x
 
 print(driver())
-#print(6*factorial(9))
