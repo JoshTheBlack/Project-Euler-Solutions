@@ -7,17 +7,27 @@ from comm import *
 @timed
 def p35(limit):
     primeArray = set(primes(limit))
-    circularPrimeArray = []
+    circularPrimeArray = [2,5]
+    avoid = [2,4,5,6,8,0]
     for i in range(1,limit):
         if i not in circularPrimeArray and i in primeArray:
-            x = rotateDigits(i)
-            allPrime = True
-            for number in x:
-                if number not in primeArray:
-                    allPrime = False
-            if allPrime == True:
+            run = True
+            while run == True:
+                for num in str(i):
+                    if int(num) in avoid:
+                        run = False
+                if run == False:
+                    break
+                x = rotateDigits(i)
+                for number in x:
+                    if number not in primeArray:
+                        run = False
+                        break
+                if run == False:
+                    break
                 for number in x:
                     circularPrimeArray.append(number)
+                    run = False
     return len(circularPrimeArray)
 
 print(p35(1000000))
