@@ -9,7 +9,7 @@ def p35(limit):
     primeArray = set(primes(limit))
     circularPrimeArray = [2,5]
     avoid = [2,4,5,6,8,0]
-    for i in range(1,limit):
+    for i in range(1,limit,2):
         if i not in circularPrimeArray and i in primeArray:
             run = True
             while run == True:
