@@ -12,4 +12,16 @@ def truncatablePrimeTest(number):
             return False
     return True
 
-print(truncatablePrimeTest(3795))
+@timed
+def driver(primeArray):
+    del primeArray[0:4]
+    count, answer = 0, 0
+    for prime in primeArray:
+        if truncatablePrimeTest(prime):
+            answer += prime
+            count += 1
+            if count == 11:
+                break
+    return answer
+
+print(driver(primeArray = primes(1000000)))
