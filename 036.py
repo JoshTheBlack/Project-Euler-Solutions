@@ -6,14 +6,11 @@ from comm import *
 
 def is_palindrome(number):
     reverse = int(str(number)[::-1])
-    if reverse == number:
-        return True
-    else:
-        return False
+    return reverse == number
 
 def build_decimal_palindromes(max):
     decimalPalindromes = []
-    for i in range(1,max):
+    for i in range(1,max,2): # Only odds because of no leading zeros for binary.  If reusing function elswhere remove ",2" to calculate all decimal palindromes.
         if is_palindrome(i):
             decimalPalindromes.append(i)
     return decimalPalindromes
