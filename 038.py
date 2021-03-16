@@ -19,8 +19,8 @@ def concatenateNumbers(numArray):
 def checkPandigital(number):
     digits = []
     for letter in str(number):
-        digits.append(letter)
-    if sorted(digits) == ['1','2','3','4','5','6','7','8','9']:
+        digits.append(int(letter))
+    if set(digits) == set(range(1,10)):
         return True
     else:
         return False
@@ -40,7 +40,7 @@ def buildPMultiples(number):
 @timed
 def p38():
     result = []
-    for i in range(1000000):
+    for i in range(9123,10000):
         pMs = buildPMultiples(i)
         if pMs != False:
             x = concatenateNumbers(pMs)
