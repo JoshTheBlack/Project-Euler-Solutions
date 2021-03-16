@@ -20,6 +20,7 @@ def factorial(n):
         return n * factorial(n-1)
 
 def sumDigits(n):
+    """Sums the digits in an integer"""
     n = str(n)
     x = 0
     for number in n:
@@ -42,13 +43,13 @@ def orderedFactors(n):
     return [[i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0]
         
 def is_prime(n): 
+    """ Tests if a number is prime """
     if n <= 1: 
         return False
     if n == 2: 
         return True
     if n > 2 and n % 2 == 0: 
         return False
-  
     max_div = math.floor(math.sqrt(n)) 
     for i in range(3, 1 + max_div, 2): 
         if n % i == 0: 
@@ -64,7 +65,34 @@ def primes(n):
     return [2] + [i for i in range(3,n,2) if sieve[i]]
 
 def rotateDigits(n):
-  rotations = set()
-  for i in range( len( str(n) ) ):
-    rotations.add(int( str(n)[i:] + str(n)[:i] ))
-  return rotations
+    """ Creates a set of all possible rotations of an integer.  i.e. 123 returns (123, 231, 312)"""
+    rotations = set()
+    for i in range( len( str(n) ) ):
+        rotations.add(int( str(n)[i:] + str(n)[:i] ))
+    return rotations
+
+def primeSieveRange(*args):
+    """ Returns  a list of primes between 'start' (inclusive) and 'end' (exclusive) 
+    
+        Takes 1 or 2 arguments.  If 1 argument is passed, it is the 'end' value.
+        If 2 arguments are passed, they are (start, end)"""
+    if len(args) > 2:
+        raise Exception("Too many arguments")
+    elif len(args) == 2:
+        start, end = args[0], args[1]
+    elif len(args) == 1:
+        start, end = 0, args[0]
+    else:
+        start,end = 0, 10
+    add2 = False
+    sieve = [True] * end
+    if start < 3:
+        start, add2 = 3, True
+    elif start % 2 == 0:
+        start += 1
+    for i in range(3,int(end**0.5)+1,2):
+        if sieve[i]:
+            sieve[i*i::2*i]=[False]*((end-i*i-1)//(2*i)+1)
+    if add2 == True:
+        return [2] + [i for i in range(3,end,2) if sieve[i]]
+    return [i for i in range(start,end,2) if sieve[i]]

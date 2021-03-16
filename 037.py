@@ -24,4 +24,4 @@ def driver(primeArray):
                 break
     return answer
 
-print(driver(primeArray = primes(1000000)))
+print(driver(primeArray = primeSieveRange(1000000)))
