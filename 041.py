@@ -53,12 +53,12 @@ def p41_2():
 def p41_3():
     # Knowing all possible pandigitals of length 2,3,5,6,8, and 9 are not prime (using divisibility rule of 3), build a list of all 
     # pandigitals that are length 4 and 7.
-    for i in range(4,8,3):
-        pandigitals = generatePandigitalNumbers(i)
+    for i in range(7,3,-3):
+        pandigitals = sorted(generatePandigitalNumbers(i),reverse=True)
         for number in pandigitals:
             if comm.is_prime(number):
-                result = number
-    return result 
+                return number
+
 
 #print(p41())
 #print(p41_2())
