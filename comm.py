@@ -96,3 +96,13 @@ def primeSieveRange(*args):
     if add2 == True:
         return [2] + [i for i in range(3,end,2) if sieve[i]]
     return [i for i in range(start,end,2) if sieve[i]]
+
+def checkPandigital(number):
+    digits = []
+    length = len(str(number))
+    for letter in str(number):
+        digits.append(int(letter))
+    if set(digits) == set(range(1,length+1)):
+        return True
+    else:
+        return False
