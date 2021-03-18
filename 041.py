@@ -6,13 +6,22 @@ from comm import timed
 import comm
 import itertools
 
-def generatePandigitalNumbers(max=9):
+def generateAllPandigitalNumbers1toN(max=9):
     pandigitals = []
     digits = [1]
     for i in range(2,max+1):
         digits.append(i)
         for combination in itertools.permutations(digits):
-            pandigitals.append(''.join(map(str, combination)))
+            pandigitals.append(int(''.join(map(str, combination))))
+    return pandigitals
+
+def generatePandigitalNumbers(length=9):
+    pandigitals = []
+    digits = [1]
+    for i in range(2,length+1):
+        digits.append(i)
+    for combination in itertools.permutations(digits):
+        pandigitals.append(int(''.join(map(str, combination))))
     return pandigitals
 
 
@@ -33,13 +42,24 @@ def p41():
 @timed
 def p41_2():
     # generate all pandigital numbers of length n where n < 9 and store it in a list ordered smallest to largest named pandigitals
-    pandigitals = generatePandigitalNumbers(9) 
+    pandigitals = generateAllPandigitalNumbers1toN(9) 
     # check each number in pandigitals for primality.  If prime, store it in result.
     for number in pandigitals:
-        if comm.is_prime(int(number)):
+        if comm.is_prime(number):
             result = number
     return result
 
+@timed
+def p41_3():
+    # Knowing all possible pandigitals of length 2,3,5,6,8, and 9 are not prime (using divisibility rule of 3), build a list of all 
+    # pandigitals that are length 4 and 7.
+    for i in range(4,8,3):
+        pandigitals = generatePandigitalNumbers(i)
+        for number in pandigitals:
+            if comm.is_prime(number):
+                result = number
+    return result 
 
 #print(p41())
-print(p41_2())
+#print(p41_2())
+print(p41_3())
