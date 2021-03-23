@@ -55,13 +55,12 @@ def p43(pandigital10):
     return sum
 
 #print(p43(generateAllPandigitalNumbersRange(0,9,10)))
+def rem(x,y):
+    return [i for i in x if i not in y]
 
 #Second attempt, generate and eliminate along the way.  Faster
 @timed
 def p43_2():
-    def rem(x,y):
-        return [i for i in x if i not in y]
-
     digits = "0123456789"
     answer = []
     for a in digits:
@@ -85,3 +84,33 @@ def p43_2():
     return f"Found {len(answer)} matching numbers summing to {sum(answer)}"
 
 print(p43_2())
+
+def unique(number):
+    for digit in str(number):
+        if str(number).count(digit) != 1:
+            return False
+    return True
+
+@timed
+def p43_3():
+    digits = "0123456789"
+    answer = []
+    for hij in range(17,1000,17):
+        if not unique(hij): continue
+        if len(str(hij)) == 2: hij = "0" + str(hij)
+        for g in rem(digits,str(hij)):
+            if int(g+str(hij)[:-1]) % 13 != 0: continue
+            for f in rem(digits,g+str(hij)):
+                if int(f+g+str(hij)[:-2]) % 11 != 0: continue
+                for e in rem(digits,f+g+str(hij)):
+                    if int(e+f+g) % 7 !=0: continue
+                    for d in rem(digits,e+f+g+str(hij)):
+                        if int(d+e+f) % 5 !=0: continue
+                        for c in rem(digits,d+e+f+g+str(hij)):
+                            if int(c+d+e) % 3 != 0 : continue
+                            for b in rem(digits,c+d+e+f+g+str(hij)):
+                                if int(b+c+d) % 2 != 0: continue
+                                answer.append(int(rem(digits,b+c+d+e+f+g+str(hij))[0]+b+c+d+e+f+g+str(hij)))
+    return f"Found {len(answer)} matching numbers totalling {sum(answer)}"
+
+print(p43_3())
