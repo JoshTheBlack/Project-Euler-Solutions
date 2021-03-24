@@ -21,7 +21,6 @@ def p44():
     for j in range(1,3000):
         for k in range(j+1,3000):
             if isPent(calcPent(k) - calcPent(j)) and isPent(calcPent(j) + calcPent(k)):
-                return int(calcPent(k) - calcPent(j))
-
+                return int(calcPent(k) - calcPent(j)), j, k
 
 print(p44())
