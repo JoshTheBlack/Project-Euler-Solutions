@@ -106,3 +106,24 @@ def checkPandigital(number):
         return True
     else:
         return False
+
+def isTri(x):
+    y = ((8*x+1)**0.5-1)/2
+    if y - int(y) == 0:
+        return True, int(y)
+    else:
+        return False, 0
+
+def isPent(x):
+    y = (((24 * x) + 1)**0.5 + 1) / 6
+    if y - int(y) == 0:
+        return True, int(y)
+    else:
+        return False, 0
+
+def isHex(x):
+    y = ((8*x+1)**0.5+1)/4
+    if y - int(y) == 0:
+        return True, int(y)
+    else: 
+        return False, 0
