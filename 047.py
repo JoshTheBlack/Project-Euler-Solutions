@@ -1,36 +1,24 @@
 # coding=utf-8
-# The first two consecutive numbers to have two distinct prime factors are:
-# 14 = 2 × 7 
-# 15 = 3 × 5
-
-# The first three consecutive numbers to have three distinct prime factors are:
-
-# 644 = 2² × 7 × 23
-# 645 = 3 × 5 × 43
-# 646 = 2 × 17 × 19.
-
 # Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
-# %% 
 from comm import *
-from itertools import combinations
-from numpy import product
+
+def findSequence(list):
+    for x in range(len(list)-2):
+        if sum(list[x:x+4]) == (4*list[x]+6):
+                return x
+    return False
 
 @timed
-def p47():
-    primes = primeSieveRange(150)
-    test = combinations(primes,4)
-    result = []
-    for comb in test:
-        x = product(comb)
-        if x in result: continue
-        result.append(product(comb))
-    result = sorted(result)
-    for number in result:
-        if number + 1 not in result: continue
-        if number + 2 not in result: continue
-        if number + 3 not in result: continue
-        return number
+def p47(n):
+    primes = set(primeSieveRange(n))
+    factors = dict([[x,[]] for x in range(2,n)])
+    for item in factors.keys():
+        if item in primes:
+            factors[item] = [item]
+        else:
+            factors[item] = generateFactors(item,factors,[])
+    fours = [item for item in factors.keys() if len(set(factors[item])) == 4]
+    position = findSequence(fours)
+    print(fours[position])
 
-print(p47())
-
-# %%
+p47(200000)

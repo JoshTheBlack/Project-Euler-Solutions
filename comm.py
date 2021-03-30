@@ -127,3 +127,12 @@ def isHex(x):
         return True, int(y)
     else: 
         return False, 0
+
+def generateFactors(num,values,factors):
+    if len(values[num]) > 0:
+        factors += values[num]
+        return factors
+    else:
+        for i in range(2,num-1):
+            if num % i == 0:
+                return generateFactors(num//i,values,factors+[i])
