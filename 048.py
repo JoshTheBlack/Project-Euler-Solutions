@@ -10,4 +10,9 @@ def p48():
         x += y**y
     return str(x)[-10:]
 
+@timed
+def p48_2():
+    return str(sum([i**i for i in range(1,1001)]))[-10:]
+
 print(p48())
+print(p48_2())
