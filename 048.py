@@ -12,7 +12,7 @@ def p48():
 
 @timed
 def p48_2():
-    return str(sum([i**i for i in range(1,1001)]))[-10:]
+    return sum(i**i for i in range(1, 1001)) % 10**10
 
 print(p48())
 print(p48_2())
