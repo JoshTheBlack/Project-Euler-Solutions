@@ -31,4 +31,28 @@ def p50():
     result = sorted(result, reverse=True)[0]
     return f"{result[0]} is the prime sum of the longest string of consecutive primes starting with {result[1]} and summing through {result[2]} consecutive primes."
 
+def maxPrimeSum(max):
+    primes = primeSieveRange(max)
+    sum = 0
+    pos = 0
+    count = 0
+    while sum < max:
+        sum += primes[pos]
+        pos += 1
+    while sum not in primes:
+        if sum - primes[pos] in primes: yield sum - primes[pos]
+        if sum - primes[count] in primes: yield sum - primes[count]
+        if sum - primes[pos] - primes[count] in primes: yield sum - primes[pos] - primes[count]
+        sum = sum - primes[pos] - primes[count]
+        count += 1
+        pos -= 1
+
+def p50_2(max):
+    result = maxPrimeSum(max)
+    for i in range(10):
+        print(next(result))
+
+
 print(p50())
+
+print(p50_2(1000000))
