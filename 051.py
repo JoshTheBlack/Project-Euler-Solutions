@@ -21,8 +21,9 @@ def digitReplacement(orig, places):
     return result
 
 def primesWithRepeatedDigitsSearch(primes):
-    repeatedDigitsQuantity = [3,5,6,7,8,9]
+    repeatedDigitsQuantity = [3,6,9]
     for prime in primes:
+        if prime < 100000: continue
         import collections
         d = collections.defaultdict(int)
         for c in str(prime):
@@ -39,7 +40,7 @@ def primesWithRepeatedDigitsSearch(primes):
 
 @timed
 def p51():
-    primes = primeSieveRange(10,1000000)
+    primes = primeSieveRange(100000,1000000)
     nextPrime = primesWithRepeatedDigitsSearch(primes)
     while True:
         prime, position = next(nextPrime)
@@ -53,10 +54,5 @@ def p51():
                     if len(str(result)) != len(str(prime)): continue
                     if not is_prime(result): continue
                     return result
-
-# def p51():
-#     x = primeSet()
-#     while True:
-#         print(next(x))
 
 print(p51())
