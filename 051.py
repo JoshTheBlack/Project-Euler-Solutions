@@ -7,9 +7,8 @@
 # is part of an eight prime value family.
 from comm import *
 
-def digitReplacement(orig, *args):
+def digitReplacement(orig, places):
     result = []
-    places = list(args)
     for x in range(10):
         number = str(orig)
         count = 0
@@ -21,4 +20,42 @@ def digitReplacement(orig, *args):
         result.append(int(newNumber))
     return result
 
-print(primeSieveRange(10,100))
+def primesWithRepeatedDigitsSearch(primes):
+    for prime in primes:
+        import collections
+        d = collections.defaultdict(int)
+        for c in str(prime):
+            d[c] += 1
+        for c in sorted(d, key=d.get, reverse=True):
+            if d[c] > 1: 
+                places = []
+                count = 0
+                for digit in str(prime):
+                    if digit == c:
+                        places.append(count)
+                    count += 1
+                yield prime, places
+
+@timed
+def p51():
+    primes = primeSieveRange(10,1000000)
+    nextPrime = primesWithRepeatedDigitsSearch(primes)
+    while True:
+        prime, position = next(nextPrime)
+        test = digitReplacement(prime, position)
+        count = 0
+        for number in test:
+            if len(str(number)) != len(str(prime)): continue
+            if is_prime(number): count += 1
+            if count == 8:
+                for result in test:
+                    if len(str(result)) != len(str(prime)): continue
+                    if not is_prime(result): continue
+                    return result
+
+# def p51():
+#     x = primeSet()
+#     while True:
+#         print(next(x))
+
+print(p51())
