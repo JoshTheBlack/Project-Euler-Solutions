@@ -34,25 +34,25 @@ def p50():
 def maxPrimeSum(max):
     primes = primeSieveRange(max)
     sum = 0
-    pos = 0
+    pos = -1
     count = 0
     while sum < max:
-        sum += primes[pos]
         pos += 1
-    while sum not in primes:
-        if sum - primes[pos] in primes: yield sum - primes[pos]
+        sum += primes[pos]
+    while True:
+        if sum > max:
+            sum -= primes[pos]
         if sum - primes[count] in primes: yield sum - primes[count]
-        if sum - primes[pos] - primes[count] in primes: yield sum - primes[pos] - primes[count]
-        sum = sum - primes[pos] - primes[count]
+        sum -= primes[count]
         count += 1
-        pos -= 1
 
+@timed
 def p50_2(max):
     result = maxPrimeSum(max)
-    for i in range(10):
-        print(next(result))
+    return next(result)
 
 
 print(p50())
 
 print(p50_2(1000000))
+
