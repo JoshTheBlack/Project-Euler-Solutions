@@ -21,13 +21,14 @@ def digitReplacement(orig, places):
     return result
 
 def primesWithRepeatedDigitsSearch(primes):
+    repeatedDigitsQuantity = [3,5,6,7,8,9]
     for prime in primes:
         import collections
         d = collections.defaultdict(int)
         for c in str(prime):
             d[c] += 1
         for c in sorted(d, key=d.get, reverse=True):
-            if d[c] > 1: 
+            if d[c] in repeatedDigitsQuantity: 
                 places = []
                 count = 0
                 for digit in str(prime):
