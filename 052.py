@@ -4,6 +4,7 @@
 from comm import *
 
 def hasSameDigits(num1, num2):
+    """Takes 2 integers, returns true if they have the same digits."""
     if sorted(str(num1)) == sorted(str(num2)):
         return True
     return False
