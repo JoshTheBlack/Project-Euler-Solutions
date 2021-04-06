@@ -4,26 +4,23 @@
 from comm import *
 
 def hasSameDigits(num1, num2):
-    l1, l2 = [], []
-    l1.extend(str(num1))
-    l2.extend(str(num2))
-    if sorted(l1) == sorted(l2):
+    if sorted(str(num1)) == sorted(str(num2)):
         return True
     return False
 
+def recTest(num,mul = 2):
+    num2 = num * mul
+    if hasSameDigits(num,num2):
+        if mul == 6: return num
+        return recTest(num,mul+1)
+    return False
+
 @timed
-def p52():
+def main():
     num = 1
-    multiplier = 2
-    while True:
-        test = num * multiplier
-        if hasSameDigits(num,test):
-            if multiplier == 6:
-                return num
-            multiplier += 1
-            continue
-        multiplier = 2
+    while not recTest(num):
         num += 1
+    return num
 
 if __name__ == '__main__': 
-    print(p52())
+    print(main())
