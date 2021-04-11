@@ -1,6 +1,6 @@
 # coding=utf-8
 from time import perf_counter
-from functools import wraps, reduce
+from functools import wraps, reduce,lru_cache
 import math
 
 def timed(func):
@@ -13,6 +13,7 @@ def timed(func):
         return result
     return wrapper
 
+@lru_cache(maxsize=None)
 def factorial(n):
     if n == 0:
         return 1
