@@ -9,7 +9,8 @@ def timed(func):
         start = perf_counter()
         result = func(*args, **kwargs)
         end = perf_counter()
-        print(f"{func.__name__}: {end-start:.6f} seconds")
+        t = end - start
+        print(f"{func.__name__}: {t:.6f} seconds or {t*1000:.6f} milliseconds")
         return result
     return wrapper
 

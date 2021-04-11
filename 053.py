@@ -7,10 +7,10 @@ def combinations(n,r):
 @timed
 def p53():
     result = 0
-    for n in range(101):
-        for r in range(n+1):
-            if combinations(n,r) > 1000000:
-                result += 1
+    for n in range(23,101):
+        for r in range(2, n):
+            if combinations(n,r) > 1000000: result += 1
     return result
 
-print(p53())
+if __name__ == "__main__":
+    print(p53())
