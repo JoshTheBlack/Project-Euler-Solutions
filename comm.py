@@ -29,6 +29,16 @@ def sumDigits(n):
         x += int(number)
     return x
 
+def reverseNumber(num):
+    """Takes an integer and returns an integer with the digits reversed"""
+    return int(str(num)[::-1])
+
+def isPalindrome(num):
+    """Takes an integer and returns true if integer is palindromic."""
+    num = str(num)
+    if num == num[::-1]: return True
+    return False
+
 def sumProperDivisors(num):
     s = set([1])
     for r in range(2, int(num**0.5)+1):
