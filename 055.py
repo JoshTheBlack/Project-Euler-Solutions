@@ -10,10 +10,9 @@ def p55(max=10000):
     for i in range(max):
         x = i
         for j in range(51):
-            y = reverseNumber(x)
-            if isPalindrome(x+y): break
+            x += reverseNumber(x)
+            if isPalindrome(x): break
             if j == 50: result += 1
-            x = x+y
     return result
 
 if __name__ == "__main__":
