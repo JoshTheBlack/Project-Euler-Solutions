@@ -25,5 +25,10 @@ def cf(num,den,count=0,max=1000,result=0):
 def p57_2(max=1000):
     result = cf(3,2,max=max)
 
+@timed
+def p57_3(max=1000):
+    return math.floor(max/13*2)
+
 print(p57())
 print(p57_2())
+print(p57_3())
