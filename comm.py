@@ -148,3 +148,10 @@ def generateFactors(num,values,factors):
         for i in range(2,num-1):
             if num % i == 0:
                 return generateFactors(num//i,values,factors+[i])
+
+def convertToAscii(data):
+    ###Takes in a list of ASCII codes and returns a string###
+    result = ""
+    for bit in data:
+        result += chr(bit)
+    return result
