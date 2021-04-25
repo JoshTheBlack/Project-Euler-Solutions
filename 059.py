@@ -33,4 +33,5 @@ def p59():
             print(convertToAscii(key))
             break
 
-p59()
+if __name__ == "__main__":
+    p59()
