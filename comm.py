@@ -140,6 +140,17 @@ def isHex(x):
     else: 
         return False, 0
 
+def isHept(x):
+    y = ((40*x + 9)**0.5 + 3)/10
+    if y - int(y) == 0:
+        return True, int(y)
+    return False, 0
+
+def isOct(x):
+    y = ((48*x+16)**0.5+4)/12
+    if y - int(y) == 0: return True, int(y)
+    return False, 0
+
 def generateFactors(num,values,factors):
     if len(values[num]) > 0:
         factors += values[num]
