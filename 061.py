@@ -86,13 +86,6 @@ def genOct(x=0):
         oct.append(y)
     return oct
 
-# def findCyclical(num, l):
-#     for row in l:
-#         for n in row:
-#             if str(num)[2:] != str(n)[:2]: continue
-#         yield n, [li for li in l if li != row]
-#     yield False, 0
-
 def findCyclical(num, l, builder=[]):
     if len(l) == 0 and str(builder[5])[2:] == str(builder[0])[:2]:
         return builder
@@ -122,9 +115,7 @@ def p61():
     for oct in octs:
         x = findCyclical(oct,[tris,sq,pents,hexs,hepts], [oct])
         if x: return sum(x)
-        
 
-
-
-print(p61())
+if __name__ == "__main__":
+    print(p61())
 
