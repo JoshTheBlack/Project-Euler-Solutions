@@ -21,4 +21,5 @@ def p67():
             data.append([int(x) for x in line.strip().split(" ")])
     return path(data,99)
 
-print(p67())
+if __name__ == "__main__":
+    print(p67())
