@@ -3,15 +3,15 @@
 #1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 #
 #By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+from comm import timed
 
-x=1
-y=1
-limit=4000000
-result = 0
+@timed
+def sumEvenFibonaccis(max=4_000_000):
+    x, y, result = 1, 2, 0
+    while x < max:
+        if x % 2 == 0: result += x
+        x, y = y, x + y
+    return result
 
-while x < limit:
-    if x % 2 == 0:
-        result = result + x
-    x, y = y, x+y
-
-print str(result)
+if __name__ == "__main__":
+    print(sumEvenFibonaccis())
