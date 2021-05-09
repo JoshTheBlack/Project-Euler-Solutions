@@ -33,5 +33,6 @@ def p66():
             result = d
     return result
 
-print(p66())
+if __name__ == "__main__":
+    print(p66())
 
