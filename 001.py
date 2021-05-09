@@ -1,24 +1,17 @@
 #If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 #Find the sum of all the multiples of 3 or 5 below 1000.
+from comm import timed
 
-x = 1000
-y=0
-z=0
-numbers3 = []
-output = 0
+@timed
+def driver(max=1000, *args):
+    '''Function to add up all multiples of *args less than max.'''
+    args = list(args)
+    result = 0
+    for x in range(max+1):
+        if any(x % y == 0 for y in args):
+            result += x
+    return result
 
-while y<x:
-    numbers3.append(y)
-    y=y+3
 
-while z<x:
-    if z % 3 != 0:
-        numbers3.append(z)
-        z=z+5
-    else:
-        z=z+5
-
-for numbers in numbers3:
-    output = output + numbers
-
-print(output)
+if __name__ == "__main__":
+    print(driver(1000, 3, 5))
