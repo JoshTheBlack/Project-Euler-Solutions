@@ -16,4 +16,5 @@ def driver():
         x += 20
         if remainderFree(x): return x
 
-print(driver())
+if __name__ == "__main__":
+    print(driver())
