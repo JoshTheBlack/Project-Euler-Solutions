@@ -39,12 +39,6 @@ def p68(vsum = 14):
             result = n4 + n5 + n1 + n2 + n3
         if li[9] == test:
             result = n5 + n1 + n2 + n3 + n4
-        # if li[0] < li[3] and li[0] < li[5] and li[0] < li[7] and li[0] < li[9]:
-        #     result = n1 + n2 + n3 + n4 + n5
-        # elif li[3] < li[0] and li[3] < li[5] and li[3] < li[7] and li[3] < li[9]:
-        #     result = n2 + n3 + n4 + n5 + n1
-        # elif li[5] < li[0] and li[5] < li[3] and li[5] < li[7] and li[5] < li[9]:
-        #     result = n3 + n4 + n5 + n1 + n2
         if len(result) == 16 and int(result) > max:
             max = int(result)
     return max
