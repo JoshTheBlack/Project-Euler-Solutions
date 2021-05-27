@@ -166,3 +166,12 @@ def convertToAscii(data):
     for bit in data:
         result += chr(bit)
     return result
+
+def partition(items, total):
+    '''Returns the number of ways that {total} can be summed to using values in the array {items}'''
+    table = [0 for i in range(total+1)] 
+    table[0] = 1
+    for i in range(0,len(items)): 
+        for j in range(items[i],total+1): 
+            table[j] += table[j-items[i]] 
+    return table[total]
