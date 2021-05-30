@@ -11,37 +11,23 @@
 # 28: 1,2,4,7,14,28
 # We can see that 28 is the first triangle number to have over five divisors.
 # What is the value of the first triangle number to have over five hundred divisors?
-import time
-
-t0 = time.time()
-
-def countDivisors(n):
-    result = 0
-    sqrt_n = int(n**0.5)
-
-    for i in range(1, sqrt_n + 1):
-        if n % i == 0:
-            result += 1
-
-    result *= 2
-
-    if sqrt_n**2 == n:
-        result -= 1
-
-    return result
+from comm import timed
+from sympy import divisor_count
 
 def tri(n):
-    return ((n+1)*(n)/2)
+    return ((n+1)*(n)//2) 
 
-stop = 0
-count = 0
+@timed
+def p012():
+    stop = 0
+    count = 0
 
-while stop < 500:
-    count += 1
-    tnum = tri(count)
-    stop = countDivisors(tnum)
-    if stop >= 500:
-        print(f"{tnum} is the {count} triangle number and has {stop} divisors")
+    while stop < 500:
+        count += 1
+        tnum = tri(count)
+        stop = divisor_count(tnum)
+        if stop >= 500:
+            return f"{int(tnum)} is the {count} triangle number and has {stop} divisors"
 
-t1 = time.time()
-print(f"This calculation took {t1-t0} seconds to complete.")
+if __name__ == "__main__":
+    print(p012())
