@@ -1,12 +1,12 @@
 # coding=utf-8
 # Find the sum of the digits in the number 100!
-import comm as comm
-from comm import timed
+from comm import timed, factorial, sumDigits
 
 @timed
 def driver(n):
-    x = comm.factorial(n)
-    y = comm.sumDigits(x)
+    x = factorial(n)
+    y = sumDigits(x)
     return y
 
-print(driver(100))
+if __name__ == "__main__":
+    print(driver(100))
