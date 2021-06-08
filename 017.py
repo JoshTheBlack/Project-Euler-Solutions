@@ -3,18 +3,7 @@
 # If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
 # NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 
 # # 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
-from time import perf_counter
-from functools import wraps
-
-def timed(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        start = perf_counter()
-        result = func(*args, **kwargs)
-        end = perf_counter()
-        print(f"{func.__name__}: {end-start:.6f} seconds")
-        return result
-    return wrapper
+from comm import timed
 
 class Solution(object):
     less_than_20 = ["", "One", "Two", "Three", "Four", "Five", "Six",
@@ -61,6 +50,6 @@ def count_letters(x,y):
         count += len(ob.numberToWords(i))
     return count
 
-
-ob = Solution()
-print(count_letters(1,1000))
+if __name__ == "__main__":
+    ob = Solution()
+    print(count_letters(1,1000))
