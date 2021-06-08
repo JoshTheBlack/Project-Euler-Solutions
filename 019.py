@@ -1,18 +1,7 @@
 # coding=utf-8
 # How many Sundays fell on the first of the month in the 20th century.
-from time import perf_counter
-from functools import wraps
 from datetime import date
-
-def timed(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        start = perf_counter()
-        result = func(*args, **kwargs)
-        end = perf_counter()
-        print(f"Function {func.__name__}: completed in {end-start:.6f} seconds")
-        return result
-    return wrapper
+from comm import timed
 
 @timed
 def newTest(year):
@@ -23,5 +12,6 @@ def newTest(year):
                 sundayFirsts += 1
     return sundayFirsts
 
-print(newTest(1901))
+if __name__ == "__main__":
+    print(newTest(1901))
 
