@@ -22,6 +22,7 @@ def calc_names(array):
         x += name_score(array[i], i+1)
     return x
 
-data = sorted(np.loadtxt(os.path.join(os.sys.path[0], "p022_names.txt"), dtype=str, skiprows=0, delimiter=","))
 
-print(calc_names(data))
+if __name__ == "__main__":
+    data = sorted(np.loadtxt(os.path.join(os.sys.path[0], "p022_names.txt"), dtype=str, skiprows=0, delimiter=","))
+    print(calc_names(data))
