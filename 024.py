@@ -11,4 +11,5 @@ def driver():
     a = list(itertools.permutations(range(0,10)))
     return ''.join([str(elem) for elem in a[999999]]) 
 
-print(driver())
+if __name__ == "__main__":
+    print(driver())
