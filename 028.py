@@ -61,4 +61,5 @@ def sumGridDiagonals(sz):
         sum += grid[i][i] + grid[len(grid)-1-i][i]
     return sum - grid[len(grid)//2][len(grid)//2]
 
-print(sumGridDiagonals(1001))
+if __name__ == "__main__":
+    print(sumGridDiagonals(1001))
