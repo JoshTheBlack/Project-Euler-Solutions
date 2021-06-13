@@ -3,25 +3,8 @@
 from comm import timed
 
 @timed
-def organizePowers(min, max):
-    powers = {}
-    for a in range(min,max+1):
-        for b in range(min,max+1):
-            powers[a**b] = f"{a}**{b}"
-    return len(powers)
-
-@timed
 def organizePowers2(min,max):
     return len(set(a**b for a in range(min, max+1) for b in range(min,max+1)))
 
-@timed
-def organizePowers3(min,max):
-    powers = set()
-    for a in range(min,max+1):
-        for b in range(min,max+1):
-            powers.add(a**b)
-    return len(powers)
-
-print(organizePowers(2, 100))
-print(organizePowers2(2,100))
-print(organizePowers3(2,100))
+if __name__ == "__main__":
+    print(organizePowers2(2,100))
