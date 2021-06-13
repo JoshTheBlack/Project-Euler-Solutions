@@ -17,4 +17,5 @@ def upperBoundary(power):
     n_digits = floor(log10(9**power)) + 1
     return n_digits * 9 ** power
 
-print(sumPowers(5))
+if __name__ == "__main__":
+    print(sumPowers(5))
