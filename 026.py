@@ -37,4 +37,5 @@ def driver():
         mp[length] = i
     return mp[max(mp)]
 
-print(driver())
+if __name__ == "__main__":
+    print(driver())
