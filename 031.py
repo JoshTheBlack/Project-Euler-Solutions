@@ -16,4 +16,5 @@ def driver():
     total = 200
     print(count(array,total))
 
-driver()
+if __name__ == "__main__":
+    driver()
