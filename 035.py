@@ -30,4 +30,5 @@ def p35(limit):
                     run = False
     return len(circularPrimeArray)
 
-print(p35(1000000))
+if __name__ == "__main__":
+    print(p35(1_000_000))
