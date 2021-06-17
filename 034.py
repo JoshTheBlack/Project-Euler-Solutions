@@ -23,9 +23,10 @@ def checkCurious(number,facts): # number to check and array of factorials 0 - 9
 def driver():
     facts = buildFactorialArray()
     x = 0
-    for n in range(3,999999):
+    for n in range(3,999_999):
         if checkCurious(n,facts):
             x += n
     return x
 
-print(driver())
+if __name__ == "__main__":
+    print(driver())
