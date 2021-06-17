@@ -31,5 +31,5 @@ def driver():
         y *= results[x]
     return y
 
-
-print(driver())
+if __name__ == "__main__":
+    print(driver())
