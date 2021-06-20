@@ -48,4 +48,5 @@ def p38():
                 result.append(x)
     return sorted(result,reverse=True)[0]
 
-print(p38())
+if __name__ == "__main__":
+    print(p38())
