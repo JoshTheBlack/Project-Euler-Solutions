@@ -24,4 +24,5 @@ def driver(primeArray):
                 break
     return answer
 
-print(driver(primeArray = primeSieveRange(1000000)))
+if __name__ == "__main__":
+    print(driver(primeArray = primeSieveRange(1000000)))
