@@ -24,4 +24,5 @@ def p40():
     fraction = buildFraction(1000000)
     return d(1,fraction) * d(10,fraction) * d(100,fraction) * d(1000,fraction) * d(10000,fraction) * d(100000,fraction) * d(1000000,fraction)
 
-print(p40())
+if __name__ == "__main__":
+    print(p40())
