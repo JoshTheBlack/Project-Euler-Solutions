@@ -25,7 +25,7 @@ def p39():
         x = findABC(i)
         if len(x) > len(answer):
             answer = x
-    return sum(answer[0]), answer
+    return sum(answer[0]), len(answer)
 
 
 from math import sqrt, ceil
@@ -50,5 +50,6 @@ def test():
 
     print(best_p, max_solutions)
 
-test()
-print(p39())
+if __name__ == "__main__":
+    test()
+    #print(p39())
