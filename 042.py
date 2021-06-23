@@ -42,4 +42,5 @@ def p42(words):
         count += wordValueDict[triangle]
     return count
 
-print(p42(words))
+if __name__ == "__main__":
+    print(p42(words))
