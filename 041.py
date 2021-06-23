@@ -60,6 +60,7 @@ def p41_3():
                 return number
 
 
-#print(p41())
-#print(p41_2())
-print(p41_3())
+if __name__ == "__main__":
+    #print(p41())
+    #print(p41_2())
+    print(p41_3())
