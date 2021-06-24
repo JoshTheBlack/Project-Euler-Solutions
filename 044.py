@@ -23,4 +23,5 @@ def p44():
             if isPent(calcPent(k) - calcPent(j)) and isPent(calcPent(j) + calcPent(k)):
                 return int(calcPent(k) - calcPent(j)), j, k
 
-print(p44())
+if __name__ == "__main__":
+    print(p44())
