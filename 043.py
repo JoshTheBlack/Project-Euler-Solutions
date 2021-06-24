@@ -54,7 +54,6 @@ def p43(pandigital10):
             sum += number
     return sum
 
-#print(p43(generateAllPandigitalNumbersRange(0,9,10)))
 def rem(x,y):
     return [i for i in x if i not in y]
 
@@ -83,14 +82,13 @@ def p43_2():
                                                 answer.append(int(a+b+c+d+e+f+g+h+i+j))
     return f"Found {len(answer)} matching numbers summing to {sum(answer)}"
 
-print(p43_2())
-
 def unique(number):
     for digit in str(number):
         if str(number).count(digit) != 1:
             return False
     return True
 
+# Third attempt, build the number backwards for efficiency.  (There are less numbers divisible by 17 than 2.)  Roughy 80 times faster.
 @timed
 def p43_3():
     digits = "0123456789"
@@ -113,4 +111,6 @@ def p43_3():
                                 answer.append(int(rem(digits,b+c+d+e+f+g+str(hij))[0]+b+c+d+e+f+g+str(hij)))
     return f"Found {len(answer)} matching numbers totalling {sum(answer)}"
 
-print(p43_3())
+if __name__ == "__main__":
+    print(p43_3())
+    print(p43_2())
